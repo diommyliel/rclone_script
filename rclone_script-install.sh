@@ -18,7 +18,7 @@ UNDERLINE="\Zu"
 
 # global variables
 url="https://raw.githubusercontent.com/Jdiommyliel/rclone_script"
-branch="master"
+branch="main"
 
 # configuration variables
 remotebasedir=""
