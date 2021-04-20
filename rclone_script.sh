@@ -234,6 +234,15 @@ function downloadSaves ()
 			
 			# download saves and states to corresponding ROM
 			rclone copy retropie:${remotebasedir}/${system} ~/RetroPie/saves/${system} --include "${filter}.*" --update >> ${logfile}
+
+			# rename .sav to .srm --- ADD DIOMMY
+			cd ~/RetroPie/saves/${system}
+			for f in *.sav; do 
+    			mv -- "$f" "${f%.sav}.srm"
+			done
+			cd ~
+
+
 			retval=$?
 			
 			if [ "${retval}" = "0" ]
@@ -277,7 +286,15 @@ function uploadSaves ()
 		return
 	fi
 
-	localfiles=$(find ~/RetroPie/saves/${system} -type f -iname "${filter}.*")
+	#Create copy of srm files with .sav extension --- ADD DIOMMY
+	cd ~/RetroPie/saves/${system}
+		for f in *.srm; do 
+    		cp -- "$f" "${f%.srm}.sav"
+		done
+	cd ~
+
+	# chg DIOMMY - ajout /*.sav
+	localfiles=$(find ~/RetroPie/saves/${system}/*.sav -type f -iname "${filter}.*")
 	
 	if [ "${localfiles}" = "" ]
 	then # no local files found
@@ -297,6 +314,11 @@ function uploadSaves ()
 			showNotification "Uploading saves and states to ${remoteType}... ERROR" "red" "" "" "" "forced"
 		fi
 	fi
+
+	# deleting the .sav files --- ADD DIOMMY
+	cd ~/RetroPie/saves/${system}
+	rm *.sav
+	cd ~
 }
 
 

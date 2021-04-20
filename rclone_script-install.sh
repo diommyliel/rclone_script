@@ -17,14 +17,14 @@ UNDERLINE="\Zu"
 
 
 # global variables
-url="https://raw.githubusercontent.com/Jandalf81/rclone_script"
+url="https://raw.githubusercontent.com/Jdiommyliel/rclone_script"
 branch="master"
 
 # configuration variables
 remotebasedir=""
 shownotifications=""
 
-backtitle="RCLONE_SCRIPT installer (https://github.com/Jandalf81/rclone_script)"
+backtitle="RCLONE_SCRIPT installer (https://github.com/diommyliel/rclone_script)"
 logfile=~/scripts/rclone_script/rclone_script-install.log
 
 

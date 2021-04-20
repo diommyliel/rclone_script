@@ -1,3 +1,7 @@
+# Adaptation from Jandalf --- BETA
+
+Added bits of code to convert .srm file to .sav and vice-versa. Permits use with other android emulator than retroarch. All saves files are converted on the retropie so only .sav files are saved remotely
+
 # rclone_script
 
 Setup cloud synchronization for the save files on your RetroPie
